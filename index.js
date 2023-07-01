@@ -6,7 +6,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const app = express();
-
+const cors = require("cors")
 
 
 const PORT = process.env.PORT || 3000;
@@ -22,6 +22,8 @@ const connectDB =  async () => {
         process.exit();
     }
 }
+
+app.use(cors())
 
 app.use(logger('dev'));
 app.use(express.json());
